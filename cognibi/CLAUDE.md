@@ -1,4 +1,4 @@
-# CLAUDE.md — CogniBI Sprint
+# CLAUDE.md — CogniBI Playbook
 
 > Este fichero es el punto de arranque para cualquier sesión.
 > Léelo antes de empezar. Actualízalo al terminar cada sesión.
@@ -56,7 +56,7 @@ Esto garantiza que en cualquier sesión futura, partimos con contexto completo a
 
 ---
 
-## Estado actual del sprint
+## Estado actual del plan de trabajo
 
 | Sesión | Nombre | Estado | Fecha |
 |--------|--------|--------|-------|
@@ -70,6 +70,8 @@ Esto garantiza que en cualquier sesión futura, partimos con contexto completo a
 | S8 | Build: Claude Code Automation | ⏳ pendiente | 4 Mar 2026 |
 | S9 | Demo + Pitch | ⏳ pendiente | 5 Mar 2026 |
 | S10 | Review + Package | ⏳ pendiente | 6 Mar 2026 |
+| S11 | Smoke Test E2E (GA4 + Ads) | ⏳ pendiente | 7 Mar 2026 |
+| S12 | Governance & Ops Layer | ⏳ pendiente | 10 Mar 2026 |
 
 **Última sesión:** S1 — Product Brief (18 Feb 2026)
 **Próxima sesión:** S2 — Asset Analysis
@@ -98,7 +100,10 @@ Empresa mediana B2B, 50–500 empleados, sector SaaS/retail/fintech/logística, 
 
 ### Modelo de negocio
 - Fee implementación: €15k–€40k por proyecto
-- Retainer mensual: €1k–€3k/mes
+- Retainer mensual: €1k–€3k/mes, que incluye:
+  - **Operaciones:** monitorización interna del agente (system health, SQL correctness, costes de inferencia)
+  - **Business Value Report:** informe mensual al cliente con métricas de ROI (time-to-insight, adoption, % queries exitosas)
+  - **Mantenimiento evolutivo:** actualizaciones de schema, glosario, upgrades de modelo
 
 ### Decisiones abiertas (confirmar con César)
 - [ ] ¿El nombre "CogniBI" es definitivo?
@@ -254,6 +259,92 @@ Todo lo siguiente ocurrió en la misma sesión antes/durante S1:
   - ¿El nombre "CogniBI" es definitivo?
   - ¿Solo GCP/Gemini o hay que soportar otros LLMs?
   - ¿UI Streamlit (MVP) o React (enterprise)?
+
+---
+
+## Metodología especial para S11: Smoke Test E2E con datos sintéticos
+
+S11 valida el sistema CogniBI completo simulando un engagement real con un cliente de marketing digital. El objetivo no es solo que el agente funcione — es validar que el **workflow completo consultor + Claude Code** (vibe coding) permite construir el modelo, los pipelines y el agente de manera acelerada.
+
+### Dominio del smoke test
+- **Fuente de datos:** GA4 export + Google Ads export (esquema estándar BigQuery)
+- **Nivel de datos:** mínimo viable — esquema realista + ~100–500 filas sintéticas por tabla clave
+- **Pregunta de negocio de ejemplo:** "¿Cuál es el coste por sesión por campaña este mes?" / "¿Qué canal convierte mejor?"
+
+### Las 3 fases del smoke test
+
+**Fase 1 — Modelo de datos + datos sintéticos**
+Usando Claude Code en modo vibe coding:
+- Definir el esquema BigQuery de GA4 + Ads (tablas estándar del export)
+- Generar script Python de datos sintéticos (volumetría mínima viable)
+- Cargar en BigQuery (dataset de test)
+- Output: `smoke-test/schema/` + `smoke-test/seed_data.py`
+
+**Fase 2 — Data pipelines**
+Usando Claude Code en modo vibe coding:
+- Definir las transformaciones mínimas necesarias (views o tablas agregadas) para que el agente pueda responder las preguntas de negocio sin SQL complejo
+- Implementar como SQL scripts o dbt models ligeros
+- Output: `smoke-test/pipelines/`
+
+**Fase 3 — Agente CogniBI sobre ese modelo**
+Usando el template CogniBI construido en S6–S8:
+- Onboarding del cliente "demo_ga4_ads" (script S7)
+- Configurar `client_config.yaml` con el schema sintético
+- Ejecutar el agente y hacer 5–10 preguntas de negocio reales
+- Documentar: ¿funcionó? ¿qué falló? ¿qué hay que corregir?
+- Output: `smoke-test/results.md` con evidencia (queries generadas, charts, errores)
+
+### Dependencias de S11
+
+**S11 no puede ejecutarse sin que estén completadas:**
+- ✅ S6 — Build: Template v0.1 (el template genérico existe y funciona en local)
+- ✅ S7 — Build: Client Onboarding (el script `onboard_client.py` y `client_config.yaml` están operativos)
+- ✅ S8 — Build: Claude Code Automation (el playbook de prompts y el CLAUDE.md del template están listos)
+
+**Si alguna de estas sesiones se retrasa**, S11 se mueve automáticamente. No tiene sentido hacer el smoke test sobre un template incompleto.
+
+### Lo que S11 valida
+- El **template es genérico** de verdad (no hardcodeado a flights o SFDC)
+- El **workflow de onboarding** funciona con un cliente nuevo
+- El **vibe coding con Claude Code** es el método de trabajo para la fase de delivery
+- Los **gaps reales** del sistema antes de venderlo a un cliente
+
+---
+
+## Metodología especial para S12: Governance & Ops Layer
+
+S12 diseña la capa de operaciones post-entrega del CogniBI Framework. No es solo
+documentación — es el fundamento que justifica el retainer y hace el producto sostenible.
+
+### Dos capas con audiencias distintas
+
+**Capa 1 — Interna (el consultor / César)**
+
+Herramientas y procesos que usa el consultor para operar el agente del cliente:
+- **System health:** Cloud Run uptime, latencia p50/p95/p99
+- **SQL correctness monitoring:** % queries con retry, errores por tipo, fallback rate
+- **Cost tracker:** tokens Gemini + BQ slots por cliente/mes, alertas de budget
+- **Incident log:** qué falló, cuándo, cómo se resolvió
+- **Runbook:** guía paso a paso para detectar y resolver los fallos más comunes
+
+**Capa 2 — Visible al cliente (business value)**
+
+Métricas que el cliente ve cada mes para demostrar ROI:
+- **Time-to-insight:** antes (esperar al analista) vs después (respuesta del agente en segundos)
+- **Adoption dashboard:** usuarios activos, queries/día, tendencia
+- **Query success rate:** % preguntas respondidas satisfactoriamente
+- **ROI estimado:** horas de analista ahorradas × coste hora del cliente
+- **Report mensual automático** → el entregable que justifica el retainer
+
+### Dependencias de S12
+
+**S12 no puede ejecutarse sin:**
+- ✅ S6, S7, S8 completadas (el template y su arquitectura existen)
+- ✅ S11 completada (el smoke test ha revelado qué hay que monitorizar en la práctica)
+
+### Output de S12
+- `12-governance-ops.md` — especificación completa de ambas capas
+- Integración en `cognibi-template/`: estructura de logging y métricas a añadir al template
 
 ---
 
