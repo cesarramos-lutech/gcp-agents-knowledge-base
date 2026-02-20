@@ -12,6 +12,7 @@ A personal knowledge base for learning and organizing knowledge about **AI agent
 | `concepts/` | Core concepts explained -- what things are and how they work |
 | `experiments/` | Notes and learnings from hands-on experiments and prototypes |
 | `decisions/` | Decision frameworks -- when to use what, trade-offs, recommendations |
+| `_templates/` | Blank templates for each entry type -- copy to the right folder to create a new entry |
 
 ---
 
@@ -37,14 +38,20 @@ A personal knowledge base for learning and organizing knowledge about **AI agent
 
 ## How to use this repo
 
-This is a living document. The workflow is simple:
+Knowledge is captured automatically during CogniBI sessions via two triggers built into `cognibi/CLAUDE.md`:
 
-1. **Learn something** (from building, reading, experimenting, or conversations)
-2. **Distill it** into a short markdown file
-3. **Put it in the right folder** and update this index
-4. **Push it**
+- **In-session trigger:** when a notable learning happens (new ADK pattern, architecture decision, tool comparison, experiment result), Claude proposes a KB entry on the spot
+- **Session-close sweep:** before closing any CogniBI session, Claude lists learnings and asks which ones to capture
 
-Over time, this becomes a searchable, version-controlled second brain for the agents domain.
+To add an entry manually:
+
+1. Pick the right template from `_templates/`
+2. Copy it to the appropriate folder with a descriptive slug (e.g. `experiments/nl2sql-self-correction-loop.md`)
+3. Fill in all sections
+4. Add it to the Index below
+5. Push
+
+Over time, this becomes a searchable, version-controlled second brain for the GCP agents domain.
 
 ---
 
