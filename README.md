@@ -38,7 +38,7 @@ A personal knowledge base for learning and organizing knowledge about **AI agent
 
 ## How to use this repo
 
-Knowledge is captured automatically during CogniBI sessions via two triggers built into `cognibi/CLAUDE.md`:
+Knowledge is captured automatically during CogniBI sessions via two triggers built into `cognibi-playbook/CLAUDE.md`:
 
 - **In-session trigger:** when a notable learning happens (new ADK pattern, architecture decision, tool comparison, experiment result), Claude proposes a KB entry on the spot
 - **Session-close sweep:** before closing any CogniBI session, Claude lists learnings and asks which ones to capture
