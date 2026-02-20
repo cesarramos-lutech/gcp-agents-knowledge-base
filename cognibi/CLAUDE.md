@@ -60,21 +60,23 @@ Esto garantiza que en cualquier sesión futura, partimos con contexto completo a
 
 | Sesión | Nombre | Estado | Fecha |
 |--------|--------|--------|-------|
-| S1 | Product Brief | ✅ COMPLETADO | 18 Feb 2026 |
-| S2 | Asset Analysis | ⏳ **SIGUIENTE** | 24 Feb 2026 |
-| S3 | Agent Deliverable Spec | ⏳ pendiente | 25 Feb 2026 |
-| S4 | Metodología | ⏳ pendiente | 26 Feb 2026 |
-| S5 | Arquitectura Template | ⏳ pendiente | 27 Feb 2026 |
-| S6 | Build: Template v0.1 | ⏳ pendiente | 2 Mar 2026 |
-| S7 | Build: Client Onboarding | ⏳ pendiente | 3 Mar 2026 |
-| S8 | Build: Claude Code Automation | ⏳ pendiente | 4 Mar 2026 |
-| S9 | Demo + Pitch | ⏳ pendiente | 5 Mar 2026 |
-| S10 | Review + Package | ⏳ pendiente | 6 Mar 2026 |
-| S11 | Smoke Test E2E (GA4 + Ads) | ⏳ pendiente | 7 Mar 2026 |
-| S12 | Governance & Ops Layer | ⏳ pendiente | 10 Mar 2026 |
+| S1 | Product Brief | ✅ COMPLETADO | 24 Feb 2026 |
+| S1.5 | Competitive Landscape | ⏳ **SIGUIENTE** | 26 Feb 2026 |
+| S2 | Asset Analysis | ⏳ pendiente | 2 Mar 2026 |
+| S3 | Agent Deliverable Spec | ⏳ pendiente | 4 Mar 2026 |
+| S4 | Metodología | ⏳ pendiente | 6 Mar 2026 |
+| S5 | Arquitectura Template | ⏳ pendiente | 9 Mar 2026 |
+| S6 | Build: Template v0.1 | ⏳ pendiente | 11 Mar 2026 |
+| S7 | Build: Client Onboarding | ⏳ pendiente | 13 Mar 2026 |
+| S8 | Build: Claude Code Automation | ⏳ pendiente | 16 Mar 2026 |
+| S9 | Demo + Pitch | ⏳ pendiente | 18 Mar 2026 |
+| S10 | Review + Package | ⏳ pendiente | 20 Mar 2026 |
+| S11 | Smoke Test E2E (GA4 + Ads) | ⏳ pendiente | 23 Mar 2026 |
+| S12 | Governance & Ops Layer | ⏳ pendiente | 25 Mar 2026 |
+| S13 | Market Validation & Battle Cards | ⏳ pendiente | 27 Mar 2026 |
 
-**Última sesión:** S1 — Product Brief (18 Feb 2026)
-**Próxima sesión:** S2 — Asset Analysis
+**Última sesión:** S1 — Product Brief (24 Feb 2026)
+**Próxima sesión:** S1.5 — Competitive Landscape (26 Feb 2026)
 
 ---
 
@@ -197,6 +199,47 @@ gcp-data-agents/cognibi-template/    ← se crea en S6
 ├── CLAUDE.md                        # S8: instrucciones para Claude Code
 └── README.md
 ```
+
+---
+
+## Metodología especial para S1.5: Competitive Landscape
+
+S1.5 valida el posicionamiento estratégico de CogniBI **antes de construir nada**. Es un checkpoint de estrategia para asegurarse de que hay un hueco real en el mercado antes de invertir en S2–S12.
+
+### Preguntas clave a responder
+- ¿Para qué segmento CogniBI gana claramente? ¿Hay un hueco real no cubierto?
+- ¿Cuál es el moat real frente a cada competidor?
+- ¿Hay algún red flag que deba cambiar el diseño del producto antes de S3?
+
+### Competidores a analizar (6)
+1. Databricks Genie
+2. Looker Conversational Analytics (Google)
+3. Power BI Copilot / Tableau Pulse
+4. ThoughtSpot / Sigma
+5. MicroStrategy Mosaic + Strategy AI Agents
+6. DIY: LangChain/LlamaIndex + BigQuery (la alternativa que los técnicos intentan en casa)
+
+### Dimensiones de comparación (7)
+- **Precio / modelo de negocio**
+- **ICP al que va** (enterprise vs midmarket vs startup)
+- **Stack técnico requerido** (¿lock-in a qué plataforma?)
+- **Capacidades NL2SQL / viz / contexto de negocio**
+- **Deployment** (SaaS vs self-hosted vs managed)
+- **Madurez / adoption**
+- **Lo que NO hace bien** (gaps que CogniBI puede explotar)
+
+### Paso a paso para ejecutar S1.5
+
+1. **Preguntar a César** qué competidores conoce bien y si hay alguno a priorizar o descartar
+2. **Lanzar research en paralelo** — WebSearch por competidor (6 búsquedas paralelas), focalizando en pricing, ICP, stack y gaps documentados
+3. **Presentar hallazgos a César** antes de sintetizar — ¿refleja lo que él ve en el mercado?
+4. **Generar `01b-competitive-landscape.md`** con tabla comparativa + mapa de posicionamiento + positioning statement refinado + red flags
+
+### Output: `01b-competitive-landscape.md`
+- Tabla comparativa 7 dimensiones × 6 competidores + CogniBI
+- Mapa de posicionamiento 2×2 (precio vs complejidad técnica)
+- Positioning statement refinado de CogniBI
+- Red flags o ajustes a incorporar antes de S3
 
 ---
 
@@ -348,11 +391,52 @@ Métricas que el cliente ve cada mes para demostrar ROI:
 
 ---
 
+## Metodología especial para S13: Market Validation & Battle Cards
+
+S13 evalúa el producto CogniBI **terminado** contra la competencia con evidencia real del smoke test (S11) y el sistema de operaciones (S12). Es la validación final antes de salir a vender.
+
+### Objetivo
+Confirmar que CogniBI tiene posicionamiento defendible con un producto real funcionando, y que el equipo comercial (César) tiene los argumentarios necesarios para cerrar deals.
+
+### Prerequisito
+**S13 no puede ejecutarse sin que estén completadas:**
+- ✅ S6–S12 completadas (el producto existe, funciona y tiene capa de ops)
+- ✅ S11 completada (el smoke test ha revelado los puntos fuertes y débiles reales)
+- ✅ S1.5 completada (tenemos la línea base del análisis competitivo inicial)
+
+### Las 3 fases de S13
+
+**Fase 1 — Battle cards por competidor**
+Para cada uno de los 6 competidores analizados en S1.5:
+- ¿Cuándo gana CogniBI claramente?
+- ¿Cuándo pierde (y qué decir en ese caso)?
+- Cómo responder las 3 objeciones más comunes de ese competidor
+- Evidencia del smoke test que respalda los argumentos
+
+**Fase 2 — Análisis de supervivencia (Future-proofing)**
+- ¿CogniBI tiene sentido en 2027 cuando los LLMs sean aún más capaces?
+- ¿Cuál es el moat a largo plazo? (stack especializado GCP, expertise de implementación, base de clientes, datos propietarios del cliente)
+- Escenarios: ¿qué pasa si Google lanza una versión gratuita de Looker Conversational para PyMEs?
+
+**Fase 3 — Go-to-market readiness**
+- ¿Está el producto listo para ser vendido? ¿Qué falta?
+- Checklist de materiales de venta: deck, one-pager, demo en vivo, pricing sheet, caso de uso de referencia
+- Primeros 3 clientes objetivo: perfil, canal de entrada, propuesta de valor específica
+
+### Output: `13-market-validation.md`
+- Battle cards (1 por competidor, formato estandarizado)
+- Sección "Future-proofing": escenarios y moat analysis
+- Checklist go-to-market con estado de cada ítem
+- Resumen ejecutivo: ¿CogniBI está listo para vender? ¿Qué hacer primero?
+
+---
+
 ## Reglas de trabajo para Claude Code
 
 - Documentación → esta carpeta (`gcp-agents-knowledge-base/cognibi/`)
 - Código del template → `gcp-data-agents/cognibi-template/` (se crea en S6)
 - **Al terminar cada sesión:** actualizar este `CLAUDE.md` (tabla de estado + notas) y el `README.md` — SIEMPRE, sin excepción
 - **Antes de cada tarea:** usar `AskUserQuestion` para confirmar con César — SIEMPRE
+- **Al modificar el plan de trabajo (añadir, mover, fusionar o eliminar sesiones):** (1) consultar primero el Google Calendar de César (cesar.ramos@lutech-sweeft.es) para ver las fechas reales de todos los eventos CogniBI existentes, (2) calcular el nuevo orden respetando siempre un día de gap entre sesiones y saltando fines de semana a la siguiente semana, (3) actualizar o crear los eventos de Calendar consecuentemente. SIEMPRE, sin excepción. No asumir fechas sin consultar el calendario real.
 - Stack fijo: Google ADK + Gemini + BigQuery + GCP. No proponer alternativas salvo que César lo indique.
 - Idioma de documentación: español. Código: inglés.
