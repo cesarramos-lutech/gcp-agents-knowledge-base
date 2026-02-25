@@ -1,60 +1,59 @@
-# [Decisión: título en formato "Usar X para Y"]
+# [Decision: Use X for Y]
 
-> **Fecha:** YYYY-MM-DD | **Sesión CogniBI:** S[N] | **Estado:** Firme / Revisable
-
----
-
-## La pregunta
-
-<!-- ¿Qué decisión había que tomar? Formula como pregunta directa. -->
-<!-- Ejemplo: "¿Cómo gestionar el schema del cliente — fichero JSON estático o query dinámica a BQ?" -->
+> **Date:** YYYY-MM-DD | **Project:** [project name] | **Status:** Firm / Revisable
 
 ---
 
-## Opciones consideradas
+## The question
 
-### Opción A: [Nombre]
+<!-- What decision needed to be made? Frame it as a direct question. -->
+<!-- Example: "How to manage the client schema — static JSON file or dynamic BQ query?" -->
+
+---
+
+## Options considered
+
+### Option A: [Name]
 **Pros:**
 -
 -
 
-**Contras:**
+**Cons:**
 -
 -
 
-### Opción B: [Nombre]
+### Option B: [Name]
 **Pros:**
 -
 -
 
-**Contras:**
+**Cons:**
 -
 -
 
-<!-- Añade Opción C si aplica -->
+<!-- Add Option C if applicable -->
 
 ---
 
-## Decisión tomada
+## Decision made
 
-**Se eligió:** Opción [A/B/C] — [Nombre]
+**Chosen:** Option [A/B/C] — [Name]
 
-**Razonamiento:**
-<!-- 2-4 frases explicando por qué esta opción ganó. -->
-
----
-
-## Consecuencias
-
-<!-- ¿Qué implica esta decisión? ¿Qué puertas abre y cierra? -->
-- **Abre:**
-- **Cierra / complica:**
-- **Asume:**
+**Reasoning:**
+<!-- 2-4 sentences explaining why this option won. -->
 
 ---
 
-## Contexto de revisión
+## Consequences
 
-<!-- ¿Bajo qué condiciones debería revisarse esta decisión? -->
-<!-- Ejemplo: "Revisable si el cliente necesita más de 10 datasets — entonces el JSON estático no escala" -->
+<!-- What does this decision imply? What doors does it open and close? -->
+- **Opens:**
+- **Closes or complicates:**
+- **Assumes:**
 
+---
+
+## Review context
+
+<!-- Under what conditions should this decision be revisited? -->
+<!-- Example: "Revisable if the client needs more than 10 datasets — then the static JSON won't scale" -->

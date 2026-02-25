@@ -1,60 +1,60 @@
-# Experimento: [Título descriptivo de lo que se intentó]
+# Experiment: [Descriptive title of what was attempted]
 
-> **Fecha:** YYYY-MM-DD | **Sesión CogniBI:** S[N] | **Resultado:** ✅ Éxito / ❌ Fallo / ⚠️ Parcial
-
----
-
-## Qué se intentó
-
-<!-- Una frase clara. Qué se quería lograr o probar. -->
-<!-- Ejemplo: "Reducir los reintentos de SQL pasando el error completo de BQ al agente en lugar de solo el mensaje" -->
+> **Date:** YYYY-MM-DD | **Project:** [project name] | **Result:** ✅ Success / ❌ Failure / ⚠️ Partial
 
 ---
 
-## Hipótesis
+## What was attempted
 
-<!-- ¿Qué se esperaba que pasara? ¿Por qué? -->
+<!-- One clear sentence. What was the goal or what was being tested. -->
+<!-- Example: "Reduce SQL retries by passing the full BQ error to the agent instead of just the message" -->
 
 ---
 
-## Lo que se hizo
+## Hypothesis
 
-<!-- Pasos concretos — suficiente detalle para reproducirlo -->
+<!-- What was expected to happen? Why? -->
+
+---
+
+## What was done
+
+<!-- Concrete steps — enough detail to reproduce it -->
 1.
 2.
 3.
 
 ```python
-# Código relevante si lo hay (solo el fragmento clave)
+# Relevant code if any (only the key fragment)
 ```
 
 ---
 
-## Resultado real
+## Actual result
 
-<!-- Describe lo que pasó — sin filtrar. Éxito y fallo son igual de valiosos. -->
+<!-- Describe what happened — unfiltered. Success and failure are equally valuable. -->
 
-**Métricas (si aplica):**
-- Antes: [X]
-- Después: [Y]
-
----
-
-## Por qué funcionó / por qué no
-
-<!-- El análisis causal. Esto es lo más valioso del experimento. -->
+**Metrics (if applicable):**
+- Before: [X]
+- After: [Y]
 
 ---
 
-## Siguiente paso / pregunta abierta
+## Why it worked / why it didn't
 
-<!-- ¿Qué experimento haría falta ahora? ¿Qué quedó sin probar? -->
+<!-- Causal analysis. This is the most valuable part of the experiment. -->
+
+---
+
+## Next steps / open questions
+
+<!-- What experiment would be needed now? What was left untested? -->
 - [ ]
 - [ ]
 
 ---
 
-## Repo / contexto
+## Repo / context
 
 - **Repo:** `gcp-data-agents/[repo]/`
-- **Archivo:** `[archivo].py` línea [N] (si aplica)
+- **File:** `[file].py` line [N] (if applicable)

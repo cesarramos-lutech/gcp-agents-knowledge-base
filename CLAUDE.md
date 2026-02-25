@@ -1,98 +1,98 @@
 # CLAUDE.md — GCP Agents Knowledge Base
 
-> Este fichero define cómo Claude Code trabaja en este repo.
-> Léelo antes de añadir, modificar o indexar cualquier entrada de conocimiento.
+> This file defines how Claude Code works in this repo.
+> Read it before adding, modifying, or indexing any knowledge entry.
 
 ---
 
-## Propósito del repo
+## Purpose
 
-Base de conocimiento personal sobre **agentes de datos en GCP** — ADK, Conversational Analytics API, BigQuery, multi-agent orchestration, y temas relacionados. El conocimiento aquí capturado proviene principalmente del proyecto CogniBI y del estudio del stack GCP.
-
----
-
-## Criterio de captura
-
-**¿Vale la pena crear una entrada?**
-
-> Sí, si le ahorraría a César-futuro 30+ minutos de redescubrir algo.
-
-Señales de que algo merece capturarse:
-- Se implementó un patrón ADK por primera vez y no era obvio cómo hacerlo
-- Se eligió entre dos herramientas/enfoques con razonamiento explícito
-- Un experimento produjo un resultado inesperado (éxito o fallo)
-- Se llegó a una conclusión de arquitectura que cambia algo del diseño de CogniBI
+Shared team knowledge base on **GCP data agents** — ADK, Conversational Analytics API, BigQuery, multi-agent orchestration, and related topics.
 
 ---
 
-## Estructura de carpetas
+## Capture criterion
 
-| Carpeta | Qué va aquí | Cuándo usarla |
-|---------|-------------|---------------|
-| `comparisons/` | Side-by-side entre dos herramientas, APIs o enfoques | Cuando se comparan alternativas y se llega a una conclusión |
-| `concepts/` | Explicaciones de cómo funciona algo | Cuando se entiende un mecanismo nuevo (ej: cómo funciona el state en ADK) |
-| `experiments/` | Resultados de lo que se probó — éxitos Y fallos | Cuando se hace un experimento con resultado claro |
-| `decisions/` | Decisiones de arquitectura con razonamiento | Cuando se elige entre opciones con consecuencias |
-| `_templates/` | Plantillas vacías para cada tipo de entrada | Solo como referencia — no crear entradas directamente aquí |
+**Is an entry worth creating?**
 
-**Duda de dónde poner algo:**
-- Si compara dos cosas → `comparisons/`
-- Si explica un mecanismo → `concepts/`
-- Si documenta un resultado empírico → `experiments/`
-- Si justifica una elección → `decisions/`
+> Yes, if it would save any team member 30+ minutes of rediscovering something.
+
+Signals that something deserves an entry:
+- An ADK pattern was implemented for the first time and it wasn't obvious how to do it
+- A choice was made between two tools/approaches with explicit reasoning
+- An experiment produced an unexpected result (success or failure)
+- An architecture conclusion was reached that changes a project's design
 
 ---
 
-## Cómo añadir una entrada
+## Folder structure
 
-### 1. Elegir el template correcto
+| Folder | What goes here | When to use it |
+|--------|----------------|----------------|
+| `comparisons/` | Side-by-side between two tools, APIs, or approaches | When comparing alternatives and reaching a conclusion |
+| `concepts/` | Explanations of how something works | When understanding a new mechanism (e.g. how ADK state works) |
+| `experiments/` | Results of what was tried — successes AND failures | When an experiment has a clear outcome |
+| `decisions/` | Architecture decisions with reasoning | When choosing between options with consequences |
+| `_templates/` | Blank templates for each entry type | Reference only — don't create entries directly here |
+
+**Not sure where something goes?**
+- If it compares two things → `comparisons/`
+- If it explains a mechanism → `concepts/`
+- If it documents an empirical result → `experiments/`
+- If it justifies a choice → `decisions/`
+
+---
+
+## How to add an entry
+
+### 1. Pick the right template
 
 ```
-_templates/adk-pattern.md          → patrones de implementación ADK
-_templates/architecture-decision.md → decisiones de diseño con alternativas
-_templates/tool-comparison.md       → comparaciones entre herramientas
-_templates/experiment.md            → resultados de experimentos
+_templates/adk-pattern.md           → ADK implementation patterns
+_templates/architecture-decision.md → design decisions with alternatives
+_templates/tool-comparison.md       → comparisons between tools
+_templates/experiment.md            → experiment results
 ```
 
 ### 2. Naming convention
 
 ```
-{carpeta}/{slug-descriptivo}.md
+{folder}/{descriptive-slug}.md
 ```
 
-Ejemplos correctos:
+Correct examples:
 ```
 concepts/adk-session-state-vs-context.md
 experiments/nl2sql-self-correction-loop.md
-decisions/streamlit-vs-react-for-cognibi-ui.md
+decisions/streamlit-vs-react-for-data-app-ui.md
 comparisons/agent-engine-vs-cloud-run-deployment.md
 ```
 
-Reglas del slug:
-- Todo en minúsculas, palabras separadas por guión
-- Descriptivo: que al leer el nombre se entienda el tema
-- Sin fechas en el nombre (la fecha va dentro del documento)
+Slug rules:
+- All lowercase, words separated by hyphens
+- Descriptive: the topic should be clear from the filename alone
+- No dates in the name (date goes inside the document)
 
-### 3. Rellenar el template
+### 3. Fill in the template
 
-Copiar el template a la nueva ubicación y rellenar todas las secciones. Las secciones en comentarios HTML (`<!-- -->`) son instrucciones — reemplazarlas con contenido real.
+Copy the template to the new location and fill in all sections. HTML comment sections (`<!-- -->`) are instructions — replace them with real content.
 
-### 4. Actualizar el índice
+### 4. Update the index
 
-Siempre actualizar `README.md` después de crear una entrada — añadirla en la sección correspondiente del índice. No dejar entradas sin indexar.
-
----
-
-## Idioma
-
-- **Documentación:** español
-- **Code snippets:** inglés (variable names, function names, comments en código)
+Always update `README.md` after creating an entry — add it to the corresponding section of the index. Don't leave entries unindexed.
 
 ---
 
-## Lo que este repo NO es
+## Language
 
-- No es documentación de producto de CogniBI → eso va en `cognibi-playbook/`
-- No es código → eso va en `cognibi-template/`
-- No es notas de sesión → eso va en `cognibi-playbook/CLAUDE.md`
-- No es un blog — cada entrada debe ser densa en valor práctico, no narrativa
+- **Documentation:** English
+- **Code snippets:** English (variable names, function names, code comments)
+
+---
+
+## What this repo is NOT
+
+- Not product documentation — that belongs in project-specific repos
+- Not code — that belongs in the corresponding code repos
+- Not session notes — those belong in project-specific playbooks
+- Not a blog — every entry must be dense with practical value, not narrative

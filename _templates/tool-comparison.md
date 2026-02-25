@@ -1,59 +1,59 @@
-# [Herramienta A] vs [Herramienta B]
+# [Tool A] vs [Tool B]
 
-> **Fecha:** YYYY-MM-DD | **Sesión CogniBI:** S[N] | **Contexto:** [una frase del problema que forzó la comparación]
+> **Date:** YYYY-MM-DD | **Project:** [project name] | **Context:** [one sentence describing the problem that forced the comparison]
 
 ---
 
 ## TL;DR
 
-| | Ganador |
+| | Winner |
 |---|---|
-| **Cuándo usar A** | [situación] |
-| **Cuándo usar B** | [situación] |
-| **Híbrido posible** | Sí / No |
+| **When to use A** | [situation] |
+| **When to use B** | [situation] |
+| **Hybrid possible** | Yes / No |
 
 ---
 
-## Tabla comparativa
+## Comparison table
 
-| Dimensión | [Herramienta A] | [Herramienta B] |
+| Dimension | [Tool A] | [Tool B] |
 |---|---|---|
-| [Dimensión 1] | | |
-| [Dimensión 2] | | |
-| [Dimensión 3] | | |
-| [Dimensión 4] | | |
-| [Dimensión 5] | | |
+| [Dimension 1] | | |
+| [Dimension 2] | | |
+| [Dimension 3] | | |
+| [Dimension 4] | | |
+| [Dimension 5] | | |
 
-<!-- Dimensiones sugeridas según contexto:
-     Para herramientas de infra: precio, lock-in, latencia, escalado, ops overhead
-     Para frameworks de agentes: control, tiempo de setup, comunidad, ADK-compatibility
-     Para UI frameworks: tiempo dev, look enterprise, mantenimiento, WebSocket support
+<!-- Suggested dimensions by context:
+     For infra tools: price, lock-in, latency, scalability, ops overhead
+     For agent frameworks: control, setup time, community, ADK-compatibility
+     For UI frameworks: dev time, enterprise look, maintenance, WebSocket support
 -->
 
 ---
 
-## Cuándo usar [Herramienta A]
+## When to use [Tool A]
 
 -
 -
 
-## Cuándo usar [Herramienta B]
+## When to use [Tool B]
 
 -
 -
 
 ---
 
-## Enfoque híbrido
+## Hybrid approach
 
-<!-- Si tiene sentido usar ambas — explica cómo y cuándo -->
-<!-- Si no aplica, elimina esta sección -->
+<!-- If it makes sense to use both — explain how and when -->
+<!-- If not applicable, delete this section -->
 
 ---
 
-## Evidencia / fuente
+## Evidence / source
 
-<!-- ¿Qué documentación, experimento o benchmark respalda estas conclusiones? -->
-- **Documentación:**
-- **Experimento propio:** (si aplica)
-- **Referencia en repo:** `gcp-data-agents/[repo]/`
+<!-- What documentation, experiment, or benchmark supports these conclusions? -->
+- **Documentation:**
+- **Own experiment:** (if applicable)
+- **Reference in repo:** `gcp-data-agents/[repo]/`

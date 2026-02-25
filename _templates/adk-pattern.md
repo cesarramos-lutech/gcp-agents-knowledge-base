@@ -1,52 +1,52 @@
-# [Nombre del patrón ADK]
+# [ADK Pattern Name]
 
-> **Fecha:** YYYY-MM-DD | **Sesión CogniBI:** S[N] | **Repo de referencia:** `gcp-data-agents/[repo]/`
-
----
-
-## Problema que resuelve
-
-<!-- ¿Qué situación o necesidad llevó a usar este patrón? Sé concreto. -->
-<!-- Ejemplo: "Necesitaba que un sub-agente generara SQL sin exponer el schema completo al root agent" -->
+> **Date:** YYYY-MM-DD | **Project:** [project name] | **Reference repo:** `gcp-data-agents/[repo]/`
 
 ---
 
-## El patrón
+## Problem it solves
 
-<!-- Descripción clara del patrón: qué es, cómo funciona, por qué funciona. -->
+<!-- What situation or need led to using this pattern? Be specific. -->
+<!-- Example: "Needed a sub-agent to generate SQL without exposing the full schema to the root agent" -->
+
+---
+
+## The pattern
+
+<!-- Clear description of the pattern: what it is, how it works, why it works. -->
 
 ```python
-# Código de ejemplo mínimo que ilustra el patrón
-# Mantén solo lo esencial — sin boilerplate innecesario
+# Minimal code example illustrating the pattern
+# Keep only the essentials — no unnecessary boilerplate
 ```
 
 ---
 
-## Cuándo usarlo
+## When to use
 
-<!-- Lista de situaciones donde este patrón es la elección correcta -->
+<!-- List of situations where this pattern is the right choice -->
 -
 -
 
-## Cuándo NO usarlo
+## When NOT to use
 
-<!-- Lista de situaciones donde este patrón no aplica o hay algo mejor -->
+<!-- List of situations where this pattern doesn't apply or something else is better -->
 -
 -
 
 ---
 
-## Gotchas / errores comunes
+## Gotchas / common errors
 
-<!-- Lo que puede salir mal y cómo evitarlo -->
-- **[Problema]:** [Cómo evitarlo]
+<!-- What can go wrong and how to avoid it -->
+- **[Problem]:** [How to avoid it]
 -
 
 ---
 
-## Componentes ADK involucrados
+## ADK components involved
 
-<!-- Marca los que aplican -->
+<!-- Check all that apply -->
 - [ ] `LlmAgent`
 - [ ] `FunctionTool`
 - [ ] `AgentTool`
@@ -56,12 +56,12 @@
 - [ ] Session / State
 - [ ] Callbacks
 - [ ] Streaming
-- [ ] Otro: ___
+- [ ] Other: ___
 
 ---
 
-## Fuente / evidencia
+## Source / evidence
 
-<!-- Dónde está implementado este patrón en los repos -->
-- **Implementación:** `gcp-data-agents/[repo]/[archivo].py` línea [N]
-- **Documentación ADK:** [referencia si la hay]
+<!-- Where this pattern is implemented in the repos -->
+- **Implementation:** `gcp-data-agents/[repo]/[file].py` line [N]
+- **ADK docs:** [reference if available]
