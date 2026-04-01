@@ -28,13 +28,13 @@ A BI analytics agent that uses Gemini to write and execute BigQuery SQL based on
 
 ## Run
 
-From the **parent directory** (`mvp_adk-agents/`):
+From the **parent directory** (`mvp_adk_agents/`):
 
 ```bash
 adk web
 ```
 
-Then open [http://localhost:8000](http://localhost:8000) and select `mvp-adk-agent-without-ca`.
+Then open [http://localhost:8000](http://localhost:8000) and select `mvp_adk_agent_without_ca`.
 
 ## How it works
 
