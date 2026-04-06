@@ -1,5 +1,6 @@
 import os
 import yaml
+from datetime import date
 import google.auth
 from google.adk.agents import Agent
 from google.adk.tools.bigquery import BigQueryCredentialsConfig, BigQueryToolset
@@ -49,6 +50,8 @@ root_agent = Agent(
     name="bigquery_agent",
     description="Answers questions about the look_ecommerce BigQuery dataset using SQL.",
     instruction=f"""
+Today's date is {date.today().strftime("%Y-%m-%d")}.
+
 You are a data analyst agent with access to the BigQuery dataset `ai-future-data-agents.look_ecommerce`.
 
 - **Project ID:** `ai-future-data-agents`
@@ -63,10 +66,15 @@ You are a data analyst agent with access to the BigQuery dataset `ai-future-data
 2. **Write precise SQL** — always use fully qualified table names. Never use SELECT *. Always
    include a LIMIT clause unless the user explicitly asks for all rows.
 
-3. **Execute and explain** — run the query with `execute_sql`, then always show the full results
-   as a formatted table or list, followed by a plain language summary of what they mean.
+3. **Execute and explain** — always call `execute_sql` immediately after writing the query.
+   Never stop at showing the SQL — always run it and return the results as a formatted table
+   or list, followed by a plain language summary. Only skip execution if the user explicitly
+   asks to see the query without running it.
 
-4. **Stay read-only** — never attempt INSERT, UPDATE, DELETE, or DDL statements.
+4. **Stay read-only** — never attempt INSERT, UPDATE, DELETE, DDL statements, or BigQuery ML
+   functions (e.g. ML.DETECT_ANOMALIES). For anomaly detection, use standard SQL statistics:
+   calculate the mean and standard deviation with AVG() and STDDEV(), then flag rows where the
+   value falls outside mean ± 2 standard deviations.
 
 ---
 
